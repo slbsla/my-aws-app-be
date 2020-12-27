@@ -41,6 +41,6 @@ public class MyController  {
     @ApiOperation(value = "Afficher contenu de dossier")
     @GetMapping(path = {"/app-version/"})
     String showVersion() throws Exception {
-        return "v-1.0.1" ;
+        return "v-1.0.2" ;
     }
 }
