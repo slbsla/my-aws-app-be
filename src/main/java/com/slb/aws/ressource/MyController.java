@@ -1,9 +1,11 @@
 package com.slb.aws.ressource;
 
 
+import com.slb.aws.exception.MyException;
 import com.slb.aws.model.FileDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,5 +44,11 @@ public class MyController  {
     @GetMapping(path = {"/app-version/"})
     String showVersion() throws Exception {
         return "v-1.0.4" ;
+    }
+
+    @ApiOperation(value = "Demo Exception")
+    @GetMapping(path = {"/exception/"})
+    ResponseEntity<String> exception() throws Exception {
+        throw  new MyException();
     }
 }
